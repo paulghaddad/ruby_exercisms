@@ -3,7 +3,6 @@ class Prime
 
     def nth(nth_prime_number)
       check_if_valid_number(nth_prime_number)
-
       primes = []
       test_number = 2
 
