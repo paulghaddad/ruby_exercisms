@@ -9,10 +9,7 @@ class Prime
       test_number = 3
 
       until number_of_primes == nth_prime_number
-        if prime?(test_number)
-          number_of_primes += 1
-        end
-
+        number_of_primes += 1 if prime?(test_number)
         test_number += 2
       end
 
@@ -23,14 +20,11 @@ class Prime
       divisor = number - 1
 
       until divisor == 2
-        if divisible?(number, divisor)
-          return false
-        end
-
+        return false if divisible?(number, divisor)
         divisor -= 1
       end
 
-      return true
+      true
     end
 
     def check_if_valid_number(number)
