@@ -3,34 +3,33 @@ class Prime
 
     def nth(nth_prime_number)
       check_if_valid_number(nth_prime_number)
-      primes = []
-      test_number = 2
+      return 2 if nth_prime_number == 1
 
-      until primes.size == nth_prime_number # Can I make this an inject in some way?
-        if test_number.even? && test_number > 2
-          test_number += 1
-          next
-        end
+      number_of_primes = 1 # Initiate at 1 since 2 is the only even prime number
+      test_number = 3
 
+      until number_of_primes == nth_prime_number
         if prime?(test_number)
-          primes << test_number
+          number_of_primes += 1
         end
 
-        test_number += 1
+        test_number += 2
       end
 
-      primes.last
+      test_number -= 2
     end
 
     def prime?(number)
       divisor = number - 1
 
-      until divisor < 2
+      until divisor == 2
         if divisible?(number, divisor)
           return false
         end
+
         divisor -= 1
       end
+
       return true
     end
 
