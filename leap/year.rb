@@ -1,7 +1,6 @@
 class Year
   def self.leap?(year)
-    return false if leap_year_exception?(year)
-    year % 4 == 0
+    year % 4 == 0 && !leap_year_exception?(year)
   end
 
   private
