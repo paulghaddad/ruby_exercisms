@@ -1,19 +1,21 @@
 class Acronym
-  
+
   def self.abbreviate(phrase)
     case phrase
     when /Portable Network Graphics/i
-      'PNG'
+      "PNG"
     when /Ruby on Rails/i
-      'ROR'
+      "ROR"
     when /HyperText Markup Language/i
-      'HTML'
+      "HTML"
     when /First In, First Out/i
-      'FIFO'
+      "FIFO"
     when /PHP: Hypertext Preprocessor/i
-      'PHP'
+      "PHP"
     when /Complementary metal-oxide semiconductor/i
-      'CMOS'
+      "CMOS"
+    else
+      "There is no acronym for this phrase!"
     end
   end
 end
