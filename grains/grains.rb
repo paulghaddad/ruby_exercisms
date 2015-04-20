@@ -1,6 +1,6 @@
 class Grains
-  def square(number)
-    2 ** (number - 1)
+  def square(square_number)
+    2 ** (square_number - 1)
   end
 
   def total(number_of_squares=64)
