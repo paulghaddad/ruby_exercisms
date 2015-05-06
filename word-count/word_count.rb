@@ -2,7 +2,7 @@ class Phrase
   attr_reader :phrase
 
   def initialize(phrase)
-    @phrase = sanitize(phrase)
+    @phrase = sanitize_input(phrase)
   end
 
   def word_count
@@ -18,7 +18,7 @@ class Phrase
 
   private
 
-  def sanitize(phrase)
+  def sanitize_input(phrase)
     phrase.downcase.gsub(/\s\s|,/, " ").gsub(/[^\w\s']/, "")
   end
 end
