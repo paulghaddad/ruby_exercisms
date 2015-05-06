@@ -19,6 +19,6 @@ class Phrase
   private
 
   def sanitize(phrase)
-    phrase.downcase.gsub(/,/, " ").gsub(/[^\w\s']/, "").gsub(/\s\s/, " ")
+    phrase.downcase.gsub(/\s\s|,/, " ").gsub(/[^\w\s']/, "")
   end
 end
