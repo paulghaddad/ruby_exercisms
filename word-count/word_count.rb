@@ -17,12 +17,6 @@ class Phrase
   end
 
   def add_words_to_counter(words)
-    words.each_with_object({}) do |word, library|
-      if library[word]
-        library[word] += 1
-      else
-        library[word] = 1
-      end
-    end
+    words.each_with_object(Hash.new(0)) { |word, library| library[word] += 1 }
   end
 end
