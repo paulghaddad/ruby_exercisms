@@ -7,7 +7,7 @@ class Phrase
 
   def word_count
     words = phrase.split(' ')
-    add_words_to_counter(words)
+    update_counter(words)
   end
 
   private
@@ -16,7 +16,7 @@ class Phrase
     phrase.downcase.gsub(/\s\s|,/, " ").gsub(/[^\w\s']/, "")
   end
 
-  def add_words_to_counter(words)
-    words.each_with_object(Hash.new(0)) { |word, library| library[word] += 1 }
+  def update_counter(words)
+    words.each_with_object(Hash.new(0)) { |word, counter| counter[word] += 1 }
   end
 end
