@@ -1,5 +1,4 @@
 class Bob
-  
   def hey(remark)
     if remark == remark.upcase && remark =~ /[a-zA-z]+/
       "Whoa, chill out!"
