@@ -1,27 +1,36 @@
 class Bob
+  NO_WHITESPACE = /\A\s*\z/
+  HAS_A_LETTER = /[a-zA-Z]+/
+
   def hey(remark)
-    if yell?(remark)
+    @remark = remark
+    analyze_remark
+  end
+
+  private
+
+  def analyze_remark
+    case
+    when yell?
       "Whoa, chill out!"
-    elsif question?(remark)
+    when question?
       "Sure."
-    elsif nothing_said?(remark)
+    when nothing_said?
       "Fine. Be that way!"
     else
       "Whatever."
     end
   end
-  
-  private
 
-  def question?(remark)
-   remark[-1] =~ /\?/
+  def question?
+    @remark[-1] =~ /\?/
   end
 
-  def nothing_said?(remark)
-    remark =~ /\A\s*\z/
+  def nothing_said?
+    @remark =~ NO_WHITESPACE
   end
 
-  def yell?(remark)
-    remark == remark.upcase && remark =~ /[a-zA-z]+/
+  def yell?
+    @remark == @remark.upcase && @remark =~ HAS_A_LETTER
   end
 end
