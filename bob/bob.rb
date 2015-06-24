@@ -2,6 +2,8 @@ class Bob
   NO_WHITESPACE = /\A\s*\z/
   HAS_A_LETTER = /[a-zA-Z]+/
 
+  attr_reader :remark
+
   def hey(remark)
     @remark = remark
     analyze_remark
@@ -23,14 +25,14 @@ class Bob
   end
 
   def question?
-    @remark[-1] =~ /\?/
+    remark =~ /\?\z/
   end
 
   def nothing_said?
-    @remark =~ NO_WHITESPACE
+    remark =~ NO_WHITESPACE
   end
 
   def yell?
-    @remark == @remark.upcase && @remark =~ HAS_A_LETTER
+    remark == remark.upcase && remark =~ HAS_A_LETTER
   end
 end
